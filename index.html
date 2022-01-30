@@ -16,9 +16,9 @@
         </header>
 
         <!-- Main Section -->
-        <main class="d-flex">
+        <main class="d-flex col-12 col-lg-9">
             <section class="container-fluid row">
-                <div class="col-md-4">
+                <div class="col-sm-6 col-md-4 col-xl-2">
                     <p class="col">Search for a city:</p>
                     <textarea id="weather-search" class="col" placeholder="City name, state code and country code divided by comma"></textarea>
                     <button id="search-btn" class="col btn btn-info">Search</button> <!-- btn-block class ?-->
@@ -36,12 +36,12 @@
                 </div>
 
         <!-- When clicking on Options are presented with below Information area-->
-        <div>
-            <div class="p-2 option-info">
-                <p id="city-date-emoji"></p>
-                <p id="weather-temp">Temp:</p>
-                <p id="weather-wind">Wind:</p>
-                <p id="weather-uv">UV Index:<span class="uv-index"></span></p>
+        <div class="col-sm-10 col-md-8 col-xl-8">
+            <div class="p-2 list-group list-group-flush option-info">
+                <p id="city-date-emoji" class="list-group-item"></p>
+                <p id="weather-temp" class="list-group-item">Temp:</p>
+                <p id="weather-wind" class="list-group-item">Wind:</p>
+                <p id="weather-uv" class="list-group-item">UV Index:<span class="uv-index"></span></p>
             </div>
 
             <!-- Weather Cards -->
@@ -49,8 +49,8 @@
                 <h5 class="mt-5">5-Day Forecast:</h5>
 
                 <!-- Card 1 -->
-                <div class="mt-3 row">
-                    <div class="card">
+                <div id="cards-section" class="mt-3 row">
+                    <div id="card" class="card">
                         <h3 id="card-date" class="card-header">Card 1</h3>
                         <div class="card-body">
                             <p id="card-emoji" class="card-text"></p>
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                     <!-- Card 2 -->
-                    <div class="card">
+                    <div id="card" class="card">
                         <h3 id="card-date" class="card-header">Card 2</h3>
                         <div class="card-body">
                             <p id="card-emoji" class="card-text"></p>
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                     <!-- Card 3 -->
-                    <div class="card">
+                    <div id="card" class="card">
                         <h3 id="card-date" class="card-header">Card 3</h3>
                         <div class="card-body">
                             <p id="card-emoji" class="card-text"></p>
@@ -80,7 +80,7 @@
                         </div>
                     </div>
                     <!-- Card 4 -->
-                    <div class="card">
+                    <div id="card" class="card">
                         <h3 id="card-date" class="card-header">Card 4</h3>
                         <div class="card-body">
                             <p id="card-emoji" class="card-text"></p>
@@ -90,7 +90,7 @@
                         </div>
                     </div>
                     <!-- Card 5 -->
-                    <div class="card">
+                    <div id="card" class="card">
                         <h3 id="card-date" class="card-header">Card 5</h3>
                         <div class="card-body">
                             <p id="card-emoji" class="card-text"></p>

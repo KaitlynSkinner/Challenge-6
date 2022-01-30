@@ -1,6 +1,6 @@
 body {
     font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1;
 }
 
@@ -9,7 +9,7 @@ header {
     margin: 20px;
     color: white;
     height: 100px;
-    background: linear-gradient(85deg, rgba(37, 76, 158, 0.829), rgba(32, 19, 145, 0.877));
+    background: linear-gradient(85deg, rgba(37, 76, 158, 0.829), rgba(67, 67, 110, 0.897));
 }
 
 .weather-dashboard {
@@ -28,5 +28,74 @@ header {
 /* Option Information Section */
 .option-info {
     border: 1px solid black;
-    height: 35%;
+    height: 40%;
+    width: 165%;
 }
+
+#city-date-emoji {
+    margin-top: 10px;
+    border: none;
+}
+
+#weather-temp {
+    border: none;
+}
+#weather-wind {
+    border: none;
+}
+
+#weather-uv {
+    border: none;
+}
+
+/* 5-Day Forecast Cards Section */
+#cards-section {
+    width: 175%;
+    margin-top: 10px;
+}
+
+#card-date {
+    background-color: rgba(67, 67, 110, 0.897);
+    color: white;
+}
+
+#card {
+    color: white;
+    background-color: rgb(67, 67, 110);
+    padding: 15px 20px 95px 20px;
+    margin-right: 5px;
+    margin-top: 10px;
+}
+
+
+/* Responsive Design Begins */
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    body {
+        font-size: 1.2rem;
+      }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+    body {
+        font-size: 1.4rem;
+      }
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+    body {
+        font-size: 1.6rem;
+      }
+}
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+    body {
+        font-size: 1.8rem;
+    }
+}
+
+/* Extra large devices (large desktops) */
+/* No media query since the extra-large breakpoint has no upper bound on its width */
