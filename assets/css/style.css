@@ -1,0 +1,32 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1;
+}
+
+/* Header Section */ 
+header {
+    margin: 20px;
+    color: white;
+    height: 100px;
+    background: linear-gradient(85deg, rgba(37, 76, 158, 0.829), rgba(32, 19, 145, 0.877));
+}
+
+.weather-dashboard {
+    margin: 22px 0 0px 0;
+}
+
+/* Options Section */
+.top-line {
+    border-top: 2px solid black;
+}
+
+.btn-option {
+    width: 30px;
+}
+
+/* Option Information Section */
+.option-info {
+    border: 1px solid black;
+    height: 35%;
+}
