@@ -1,3 +1,4 @@
+/* Body Section */
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
@@ -16,50 +17,110 @@ header {
     margin: 22px 0 0px 0;
 }
 
-/* Options Section */
+/* Search Options Section */
 .top-line {
     border-top: 2px solid black;
 }
 
 .btn-option {
     width: 30px;
+    margin-top: 2px;
 }
 
-/* Option Information Section */
+/* Search Option Information Area Section */
 .option-info {
     border: 1px solid black;
-    height: 40%;
+    height: 15%;
     width: 165%;
+    justify-content: center;
 }
 
-#city-date-emoji {
+.list-group-item {
+    font-size: 22px;
+}
+
+.option-info span {
     margin-top: 10px;
     border: none;
 }
 
-#weather-temp {
-    border: none;
-}
-#weather-wind {
+.option-info p {
     border: none;
 }
 
-#weather-uv {
-    border: none;
+#current-date {
+    justify-content: start;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#current-temp, #current-wind {
+    margin-left: 5px;
+    font-size: 16px; 
+    color: black;
+}
+
+.severe {
+    border: 0.5px solid black;
+    padding: 4px;
+    margin-left: 5px;
+    border-radius: 20%;
+    background-color: red;
+    color: white;
+    font-size: 13px;
+    font-style: bold;
+}
+
+.moderate {
+    border: 0.5px solid black;
+    padding: 4px;
+    margin-left: 5px;
+    border-radius: 20%;
+    background-color: grey;
+    color: white;
+    font-size: 13px;
+    font-style: bold;
+}
+
+.favourable {
+    border: 0.5px solid black;
+    padding: 4px;
+    margin-left: 5px;
+    border-radius: 20%;
+    background-color: green;
+    color: white;
+    font-size: 13px;
+    font-style: bold;
 }
 
 /* 5-Day Forecast Cards Section */
-#cards-section {
-    width: 175%;
+.card-header {
     margin-top: 10px;
+    border: none;
+    background-color: rgb(67, 67, 110);
 }
 
-#card-date {
+.card-header h3 {
     background-color: rgba(67, 67, 110, 0.897);
     color: white;
 }
 
-#card {
+.card-text p {
+    border: none;
+}
+
+#cards-section {
+    margin-top: 10px;
+}
+
+#cards-section div {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(67, 67, 110, 0.897);
+    color: white;
+}
+
+.card-body {
     color: white;
     background-color: rgb(67, 67, 110);
     padding: 15px 20px 95px 20px;

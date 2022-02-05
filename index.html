@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- Head Section -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Stylesheets -->
     <!-- Bootstrap and CSS Stylesheet -->
-    <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <!-- My Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- Favicon.ico -->
+    <link rel="shortcut icon" href="./assets/images/favicon_io/favicon.ico" type="image/x-icon">
     <title>Weather Dashboard</title>
 </head>
+
+<!-- Body Section-->
     <body>
         <!-- Header Section -->
         <header class="mt-20 row justify-content-center">
@@ -18,96 +26,45 @@
         <!-- Main Section -->
         <main class="d-flex col-12 col-lg-9">
             <section class="container-fluid row">
+
+                <!-- Search for a City Section -->
                 <div class="col-sm-6 col-md-4 col-xl-2">
                     <p class="col">Search for a city:</p>
                     <textarea id="weather-search" class="col" placeholder="City name, state code and country code divided by comma"></textarea>
-                    <button id="search-btn" class="col btn btn-info">Search</button> <!-- btn-block class ?-->
+                    <button id="search-btn" class="col btn btn-info" onclick="resetForecast()">Search</button> <!-- btn-block class ?-->
 
-                    <!-- Options -->
+                    <!-- Previous Searched City Options Section  -->
                     <p class="mt-4 top-line"></p>
-                    <button id="search-options type="button" class="col mt-2 p-2 btn btn-info btn-light btn-option">Austin</button>
-                    <button id="search-options type="button" class="col mt-2 p-2 btn btn-info btn-light btn-option">Chicago</button>
-                    <button id="search-options type="button" class="col mt-2 p-2 btn btn-info btn-light btn-option">New York</button>
-                    <button id="search-options type="button" class="col mt-2 p-2 btn btn-info btn-light btn-option">Orlando</button>
-                    <button id="search-options type="button" class="col mt-2 p-2 btn btn-info btn-light btn-option">San Francisco</button>
-                    <button id="search-options type="button" class="col mt-2 p-2 btn btn-info btn-light btn-option">Seattle</button>
-                    <button id="search-options type="button" class="col mt-2 p-2 btn btn-info btn-light btn-option">Denver</button>
-                    <button id="search-options type="button" class="col mt-2 p-2 btn btn-info btn-light btn-option">Atlanta</button>
+                    <container id="search-history">
+                    </container>
                 </div>
 
-        <!-- When clicking on Options are presented with below Information area-->
+        <!-- When searching a city the following information is presented -->
+        <!-- Current Weather - Information Section -->
         <div class="col-sm-10 col-md-8 col-xl-8">
             <div class="p-2 list-group list-group-flush option-info">
-                <p id="city-date-emoji" class="list-group-item"></p>
-                <p id="weather-temp" class="list-group-item">Temp:</p>
-                <p id="weather-wind" class="list-group-item">Wind:</p>
-                <p id="weather-uv" class="list-group-item">UV Index:<span class="uv-index"></span></p>
+                <p id="current-date" class="list-group-item"><img id="current-icon"></img></p>
+                <p class="list-group-item">Temp:<span id="current-temp"></span></p>
+                <p class="list-group-item">Wind:<span id="current-wind"></span></p>
+                <p class="list-group-item">UV Index:<span id="uv-index"></span></p>
             </div>
 
-            <!-- Weather Cards -->
-            <div class="container">
+            <!-- Weather Cards - 5 Day Forecast Section -->
+            <div id="container" class="container-fluid">
                 <h5 class="mt-5">5-Day Forecast:</h5>
-
-                <!-- Card 1 -->
-                <div id="cards-section" class="mt-3 row">
-                    <div id="card" class="card">
-                        <h3 id="card-date" class="card-header">Card 1</h3>
-                        <div class="card-body">
-                            <p id="card-emoji" class="card-text"></p>
-                            <p id="weather-temp" class="card-text"></p>
-                            <p id="weather-wind" class="card-text"></p>
-                            <p id="weather-hum" class="card-text"></p>
-                        </div>
-                    </div>
-                    <!-- Card 2 -->
-                    <div id="card" class="card">
-                        <h3 id="card-date" class="card-header">Card 2</h3>
-                        <div class="card-body">
-                            <p id="card-emoji" class="card-text"></p>
-                            <p id="weather-temp" class="card-text"></p>
-                            <p id="weather-wind" class="card-text"></p>
-                            <p id="weather-hum" class="card-text"></p>
-                        </div>
-                    </div>
-                    <!-- Card 3 -->
-                    <div id="card" class="card">
-                        <h3 id="card-date" class="card-header">Card 3</h3>
-                        <div class="card-body">
-                            <p id="card-emoji" class="card-text"></p>
-                            <p id="weather-temp" class="card-text"></p>
-                            <p id="weather-wind" class="card-text"></p>
-                            <p id="weather-hum" class="card-text"></p>
-                        </div>
-                    </div>
-                    <!-- Card 4 -->
-                    <div id="card" class="card">
-                        <h3 id="card-date" class="card-header">Card 4</h3>
-                        <div class="card-body">
-                            <p id="card-emoji" class="card-text"></p>
-                            <p id="weather-temp" class="card-text"></p>
-                            <p id="weather-wind" class="card-text"></p>
-                            <p id="weather-hum" class="card-text"></p>
-                        </div>
-                    </div>
-                    <!-- Card 5 -->
-                    <div id="card" class="card">
-                        <h3 id="card-date" class="card-header">Card 5</h3>
-                        <div class="card-body">
-                            <p id="card-emoji" class="card-text"></p>
-                            <p id="weather-temp" class="card-text"></p>
-                            <p id="weather-wind" class="card-text"></p>
-                            <p id="weather-hum" class="card-text"></p>
-                        </div>
-                    </div>
-                </div>
             </div>
-        </div>
+
+        <!-- End -->
             </section>
         </main>
 
         <!-- Javascript Files -->
+        <!-- JQUERY -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <!-- Moment JS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <!-- My JS -->
         <script src="./assets/js/script.js"></script>
     </body>
+    
 </html>
