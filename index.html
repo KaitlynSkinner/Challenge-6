@@ -24,39 +24,38 @@
         </header>
 
         <!-- Main Section -->
-        <main class="d-flex col-12 col-lg-9">
-            <section class="container-fluid row">
+        <section class="container-fluid row d-flex">
 
                 <!-- Search for a City Section -->
-                <div class="col-sm-6 col-md-4 col-xl-2">
+                <div class="col-3 pt-3">
                     <p class="col">Search for a city:</p>
-                    <textarea id="weather-search" class="col" placeholder="City name, state code and country code divided by comma"></textarea>
-                    <button id="search-btn" class="col btn btn-info" onclick="resetForecast()">Search</button> <!-- btn-block class ?-->
+                    <textarea id="weather-search" class="col" placeholder="City Name"></textarea>
+                    <button id="search-btn" class="col btn btn-info" onclick="searchHistoryButtons()">Search</button> <!-- btn-block class ?-->
 
                     <!-- Previous Searched City Options Section  -->
                     <p class="mt-4 top-line"></p>
-                    <container id="search-history">
-                    </container>
+                    <div id="search-history">
+                    </div>
                 </div>
 
         <!-- When searching a city the following information is presented -->
         <!-- Current Weather - Information Section -->
-        <div class="col-sm-10 col-md-8 col-xl-8">
-            <div class="p-2 list-group list-group-flush option-info">
-                <p id="current-date" class="list-group-item"><img id="current-icon"></img></p>
-                <p class="list-group-item">Temp:<span id="current-temp"></span></p>
-                <p class="list-group-item">Wind:<span id="current-wind"></span></p>
-                <p class="list-group-item">UV Index:<span id="uv-index"></span></p>
+        <div class="col-9">
+            <div class="p-2 list-group option-info bg-light">
+                <p id="current-date" class="list-group-item bg-light"></p>
+                <img id="current-icon"></img>
+                <p class="font-weight-bold list-group-item bg-light">Temp:<span id="current-temp" class="font-weight-normal"></span></p>
+                <p class="font-weight-bold list-group-item bg-light">Wind:<span id="current-wind" class="font-weight-normal"></span></p>
+                <p class="font-weight-bold list-group-item bg-light">UV Index:<span id="uv-index" class="font-weight-normal"></span></p>
             </div>
 
             <!-- Weather Cards - 5 Day Forecast Section -->
-            <div id="container" class="container-fluid">
-                <h5 class="mt-5">5-Day Forecast:</h5>
+            <div id="container" class="p-3 m-3 w-100">
+                <h5 class="font-weight-bold mt-5 five-day">5-Day Forecast:</h5>
             </div>
-
+        </div>
         <!-- End -->
-            </section>
-        </main>
+        </section>
 
         <!-- Javascript Files -->
         <!-- JQUERY -->

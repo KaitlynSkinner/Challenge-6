@@ -18,25 +18,31 @@ header {
 }
 
 /* Search Options Section */
+#weather-search {
+    font-size: 26px;
+    text-align: center;
+}
+
 .top-line {
     border-top: 2px solid black;
 }
 
 .btn-option {
-    width: 30px;
+    width: 100%;
     margin-top: 2px;
 }
 
 /* Search Option Information Area Section */
 .option-info {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border: 1px solid black;
-    height: 15%;
-    width: 165%;
+    width: 100%;
     justify-content: center;
 }
 
 .list-group-item {
     font-size: 22px;
+    font-weight: lighter;
 }
 
 .option-info span {
@@ -52,12 +58,19 @@ header {
     justify-content: start;
     display: flex;
     flex-direction: row-reverse;
+    font-weight: bold; 
 }
 
 #current-temp, #current-wind {
     margin-left: 5px;
-    font-size: 16px; 
+    font-size: 18px; 
     color: black;
+}
+
+#current-icon {
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .severe {
@@ -94,39 +107,33 @@ header {
 }
 
 /* 5-Day Forecast Cards Section */
-.card-header {
-    margin-top: 10px;
-    border: none;
-    background-color: rgb(67, 67, 110);
+#container {
+    margin-bottom: 5px;
+    font-size: 18px;
 }
 
-.card-header h3 {
+.five-day {
+    font-size: 30px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 6px;
     background-color: rgba(67, 67, 110, 0.897);
     color: white;
+    margin-right: 10px;
+    display: inline-table;
 }
 
-.card-text p {
-    border: none;
+.card-body {
+    text-align: center;
+    align-items: center;
 }
 
 #cards-section {
     margin-top: 10px;
 }
 
-#cards-section div {
-    display: flex;
-    flex-direction: row;
-    background-color: rgba(67, 67, 110, 0.897);
-    color: white;
-}
-
-.card-body {
-    color: white;
-    background-color: rgb(67, 67, 110);
-    padding: 15px 20px 95px 20px;
-    margin-right: 5px;
-    margin-top: 10px;
-}
 
 
 /* Responsive Design Begins */

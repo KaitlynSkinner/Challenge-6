@@ -34,6 +34,7 @@ function fetchWeatherInfo() {
                 })
                 .then(function (data) {
                     console.log(data);
+
                     // Call created functions in fetch
                     currentForecast(data);
                     fiveDayForecast(data.daily);
@@ -48,7 +49,7 @@ $(searchButtonEl).on("click", function(e) {
     e.preventDefault();
 
     // Subtract height once user searches city
-    $(".option-info").attr("style", "height:5%")
+    $(".option-info").attr("style", "height:25%");
 
     // Set localStorage to textarea id's and trimmed value of searched cities
     var lastCitySearched = searchInputEl.val().trim();
@@ -60,16 +61,16 @@ $(searchButtonEl).on("click", function(e) {
     if (searchedCities.indexOf(lastCitySearched) === -1) {
         searchedCities.push(lastCitySearched);
         localStorage.setItem('searchHistory', JSON.stringify(searchedCities));
+    
+        // Call fetchWeatherInfo & searchHistoryButtons function
+        fetchWeatherInfo();
+        searchHistoryButtons();
     }
     console.log(searchedCities);
 
-    // Call fetchWeatherInfo & searchHistoryButtons function
-    fetchWeatherInfo();
-
-    searchHistoryButtons();
-    
-    // Local Storage for set user's searched cities
+    // Local Storage for setting user's searched cities
     localStorage.setItem('recentCity', lastCitySearched);
+
 });
 
 // WHEN I click on a city in the search history
@@ -80,22 +81,37 @@ var searchHistoryButtons = function() {
     //console.log(searchedCities);
     //console.log(cityName);
 
+    searchHistoryEl.innerHTML = ""
+    if(searchedCities === null) {
+        return;
+    }
+    var mostRecentCity = [...new Set(searchedCities)];
     // For loop for creating buttons and appending to the page under search area)
-    for (var i = 0; i < cityName.length; i++) {
+    for (var i = 0; i < mostRecentCity.length; i++) {
+        var cityName = mostRecentCity[i];
+
         var weatherSearch = $("<button>")
             .addClass("col btn btn-info btn-light btn-option")
             .text(cityName);
-        $("#search-history").append(weatherSearch);
-        break;
+            searchHistoryEl.append(weatherSearch);
+            searchHistoryElClick();
+            //break;
     }
+};
 
+function searchHistoryElClick() {
     $(searchHistoryEl).on("click", function(e) {
         e.preventDefault();
 
-        localStorage.getItem('searchedCities');
+    cityName = $(searchInputEl).text().trim();
+
+        //localStorage.getItem('searchedCities');
+    fetchWeatherInfo();
+    currentForecast(searchedCities);
+    fiveDayForecast(searchedCities);
+
     })
-    //searchHistoryButtons();
-};
+}
 
 // How to clear info when done on page?
 // Write a function to present the current dates data
@@ -128,69 +144,62 @@ var currentForecast = function(data){
             } else {
                 $("#uv-index").addClass("favourable")
             }
+            //console.log("#current-date");
 };
 
 //5 Day Forecast function, using data from API as a parameter
 var fiveDayForecast = function (data){
-
+        // Clearing Contents on screen
+        // $("#current-date").html("");
+        // $("#current-icon").html("");
+        // $("#current-temp").html("");
+        // $("#current-wind").html("");
+        // $("#uv-index").html("");
+    
             // For loop to loop through multiple cities data
             for (var i = 1; i < 6; i++) {
                 console.log(data[i]);
-                // Variable for 5 Day Forecase Cards
+
+                // Variable for 5 Day Forecast Cards, clearing content before appending
                 var weatherContainer = $("#container");
+                //weatherContainer.html("");
 
                 // Create a card, append to card, and append card to page
                 // Append to card dates, icons, temperatures, wind speeds, and humidity  
                 var weatherCard = $("<div>")
-                    .addClass("card row");
-
+                    .addClass("card row col-3");
                 weatherContainer.append(weatherCard);
 
                 var cardBodyDiv = $("<div>")
                     .addClass("card-body");
-
                 weatherCard.append(cardBodyDiv);
 
-                var dates = moment().add(4, "days").format('M/D/YYYY');
-                var datesEl = $("<p>")
-                    .addClass("card-text")
-                    .text(dates);
-                    $(".card-body")[i-1].append(datesEl);
-                
+                var dates = "<p>" + moment().add(4, "days").format('M/D/YYYY') + "</p>";
+                cardBodyDiv.append(dates);
+
                 // Variable for icon, and url - append to img src, append img to card
                 var icon = data[i].weather[0].icon;
                 var url = "http://openweathermap.org/img/wn/" + icon + "@2x.png"
                 var image = $("<img>")
                     .attr("src", url)
                     .text(image);
-                    $(".card-body").append(image);
+                cardBodyDiv.append(image);
 
                 // Append temperature, wind, humidity, and uv index to 5-day-forecast cards
-                var temp = data[i].temp.day + " °F";
-                var tempEl = $("<p>")
-                    .addClass("card-text")
-                    .text("Temp: " + temp);
-                    $(".card-body").append(tempEl);
+                var temp = "<p>Temp: " + data[i].temp.day + " °F</p>";
+                cardBodyDiv.append(temp);
 
-                var wind = data[i].wind_speed + " MPH";
-                var windEl = $("<p>")
-                    .addClass("card-text")
-                    .text("Wind: " + wind);
-                    $(".card-body").append(windEl);
+                var wind = "<p>Wind: " + data[i].wind_speed + " MPH</p>";
+                cardBodyDiv.append(wind);
 
-                var humidity = data[i].humidity + "%";
-                var humidityEl = $("<p>")
-                    .addClass("card-text")
-                    .text("Humidity: " + humidity);
-                    $(".card-body").append(humidityEl);
+                var humidity = "<p>Humidity: " + data[i].humidity + "%</p>";
+                cardBodyDiv.append(humidity);
 
                 console.log(i);
             }
 };
 
-function resetWeather() {
 
-}
 // Make sure only one set of data displays: per card, per current weather info
 // Make sure that when user searches for a new city, data is cleared from card/current info sections
 // Make sure that if user clicks on perviously searched city, data redisplays
