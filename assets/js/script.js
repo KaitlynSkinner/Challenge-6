@@ -41,8 +41,6 @@ function fetchWeatherInfo() {
                 })
         });
 };
-// Call fetchWeatherInfo function
-fetchWeatherInfo();
 
 // When searchButtonEl is clicked..
 $(searchButtonEl).on("click", function(e) {
@@ -95,7 +93,6 @@ var searchHistoryButtons = function() {
 
 };
 
-// How to clear info when done on page?
 // Write a function to present the current dates data
 var currentForecast = function(data){
     console.log(data);
@@ -175,9 +172,5 @@ var fiveDayForecast = function (data){
                 console.log(i);
             }
 };
-
-
-// Make sure only one set of data displays: per card, per current weather info
-// Make sure that when user searches for a new city, data is cleared from card/current info sections
-// Make sure that if user clicks on perviously searched city, data redisplays
-// Finish minor CSS alterations
+// Call fetchWeatherInfo function
+fetchWeatherInfo();
