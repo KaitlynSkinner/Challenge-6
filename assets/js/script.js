@@ -14,11 +14,9 @@ var cityName = localStorage.getItem('recentCity');
 function fetchWeatherInfo() {
     // Variable for API Key
     var API_Key = "5c6ee5b59356b7a8caec73530ae850dd";
-    // Variable for API Url
-    var url = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=" + API_Key;
 
     // Fetch API Data for Longitude and Latitude
-    fetch(url)
+    fetch("https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=" + API_Key)
         .then(function (response) {
             return response.json();
         })
@@ -69,7 +67,7 @@ $(searchButtonEl).on("click", function(e) {
 });
 
 // User search history function
-var searchHistoryButtons = function() {
+var searchHistoryButtons = function(data) {
     //console.log(searchedCities);
     //console.log(cityName);
 
