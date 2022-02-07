@@ -76,7 +76,7 @@ var searchHistoryButtons = function(data) {
         var weatherSearch = $("<button>")
             .addClass("col btn btn-info btn-light btn-option")
             .text(cityName);
-        searchHistoryEl.append(weatherSearch);
+        $("#search-history").append(weatherSearch);
         break;
     }
 
