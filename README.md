@@ -34,5 +34,5 @@ Weather Dashboard - Deployed URL = https://kaitlynskinner.github.io/Weather_Dash
 
 Git Hub - Repository URL = https://github.com/KaitlynSkinner/Weather_Dashboard.git
 
-![Deployed Application](https://github.com/KaitlynSkinner/Challenge-5/blob/2777c4776fcf7bf8d8b291a70145261d1d72da5c/assets/images/Workday-Scheduler-Mockup.png?raw=true)
+![Deployed Application](https://github.com/KaitlynSkinner/Weather_Dashboard/blob/eabe0109b21f031ea59c2c537ebe45c0c7d96689/assets/images/Mockup.png?raw=true)
 
