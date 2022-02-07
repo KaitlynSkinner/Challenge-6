@@ -100,7 +100,7 @@ var currentForecast = function(data){
         $("#current-date").append(cityName + " " + currentDate);
                         
     var icon = data.current.weather[0].icon;
-    var url = "http://openweathermap.org/img/wn/" + icon + "@2x.png"
+    var url = "https://openweathermap.org/img/wn/" + icon + "@2x.png"
         $("#current-icon").attr("src", url)
             $("#current-icon").append(icon);
                         
@@ -150,7 +150,7 @@ var fiveDayForecast = function (data){
 
                 // Variable for icon, and url - append to img src, append img to card
                 var icon = data[i].weather[0].icon;
-                var url = "http://openweathermap.org/img/wn/" + icon + "@2x.png"
+                var url = "https://openweathermap.org/img/wn/" + icon + "@2x.png"
                 var image = $("<img>")
                     .attr("src", url)
                     .text(image);
