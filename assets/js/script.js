@@ -48,9 +48,6 @@ fetchWeatherInfo();
 $(searchButtonEl).on("click", function(e) {
     e.preventDefault();
 
-    // Subtract height once user searches city
-    $(".option-info").attr("style", "height:25%");
-
     // Set localStorage to textarea id's and trimmed value of searched cities
     var lastCitySearched = searchInputEl.val().trim();
     console.log(lastCitySearched);  
