@@ -43,5 +43,5 @@ Weather Dashboard - Deployed URL = https://kaitlynskinner.github.io/Weather_Dash
 
 Git Hub - Repository URL = https://github.com/KaitlynSkinner/Weather_Dashboard.git
 
-![Deployed Application](https://github.com/KaitlynSkinner/Weather_Dashboard/blob/eabe0109b21f031ea59c2c537ebe45c0c7d96689/assets/images/Mockup.png?raw=true)
+![Deployed Application](https://github.com/KaitlynSkinner/Weather_Dashboard/blob/88d851e0fd375e6980beb8fce9368bd34c3703d5/assets/images/Mockup.png?raw=true)
 
