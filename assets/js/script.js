@@ -78,37 +78,22 @@ var searchHistoryButtons = function() {
     //console.log(searchedCities);
     //console.log(cityName);
 
-    searchHistoryEl.innerHTML = ""
-    if(searchedCities === null) {
-        return;
-    }
-    var mostRecentCity = [...new Set(searchedCities)];
     // For loop for creating buttons and appending to the page under search area)
-    for (var i = 0; i < mostRecentCity.length; i++) {
-        var cityName = mostRecentCity[i];
-
+    for (var i = 0; i < cityName.length; i++) {
         var weatherSearch = $("<button>")
             .addClass("col btn btn-info btn-light btn-option")
             .text(cityName);
-            searchHistoryEl.append(weatherSearch);
-            searchHistoryElClick();
-            //break;
+        searchHistoryEl.append(weatherSearch);
+        break;
     }
-};
 
-function searchHistoryElClick() {
     $(searchHistoryEl).on("click", function(e) {
         e.preventDefault();
 
-    cityName = $(searchInputEl).text().trim();
-
-        //localStorage.getItem('searchedCities');
-    fetchWeatherInfo();
-    currentForecast(searchedCities);
-    fiveDayForecast(searchedCities);
-
+        localStorage.getItem(searchedCities);
     })
-}
+
+};
 
 // How to clear info when done on page?
 // Write a function to present the current dates data
@@ -146,12 +131,6 @@ var currentForecast = function(data){
 
 //5 Day Forecast function, using data from API as a parameter
 var fiveDayForecast = function (data){
-        // Clearing Contents on screen
-        // $("#current-date").html("");
-        // $("#current-icon").html("");
-        // $("#current-temp").html("");
-        // $("#current-wind").html("");
-        // $("#uv-index").html("");
     
             // For loop to loop through multiple cities data
             for (var i = 1; i < 6; i++) {
@@ -159,6 +138,7 @@ var fiveDayForecast = function (data){
 
                 // Variable for 5 Day Forecast Cards, clearing content before appending
                 var weatherContainer = $("#container");
+                // Clearing Contents on screen
                 //weatherContainer.html("");
 
                 // Create a card, append to card, and append card to page

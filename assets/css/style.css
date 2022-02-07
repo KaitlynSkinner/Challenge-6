@@ -134,13 +134,6 @@ header {
     margin-top: 10px;
 }
 
-/* Twitter Timeline Style */
-.twitter-div {
-    width: 40%;
-    height: 80%;
-  }
-  
-
 /* Responsive Design Begins */
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {

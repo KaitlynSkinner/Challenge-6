@@ -5,9 +5,20 @@ To create an application, a weather dashboard where users/travellers can see the
 
 ## Features
 
-### Twitter Timeline ###
-    - User is able to scroll and view The Weather Channels Twitter post's
-    - Displayed to user is any important weather related information
+### Current Forecast ###
+    - City Name 
+    - Date
+    - Weather Icon
+    - Temperature
+    - Wind Speeds
+    - Uv Index
+
+### 5 Day Forecast ###
+    - Date
+    - Weather Icon
+    - Temperature
+    - Wind Speeds
+    - Humidity
 
 ### Colour Coded UV Index ###
     - Grey: to indicate the uv index is moderate
@@ -19,8 +30,6 @@ To create an application, a weather dashboard where users/travellers can see the
 The user is presented with a title.
 
 The user is presented with a search area where they are able to type and search for a city, the searched cities will then appear below the search button.
-
-When the user scrolls down the page, they are presented with The Weather Channel's Twitter posts as a Timeline.
 
 To the right they are presented with a current day forecast that displays the city, date, weather icon, temperature, wind speeds, uv index.
 
