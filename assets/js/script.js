@@ -15,7 +15,7 @@ function fetchWeatherInfo() {
     // Variable for API Key
     var API_Key = "5c6ee5b59356b7a8caec73530ae850dd";
     // Variable for API Url
-    var url = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=" + API_Key;
+    var url = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=" + API_Key;
 
     // Fetch API Data for Longitude and Latitude
     fetch(url)
@@ -67,9 +67,6 @@ $(searchButtonEl).on("click", function(e) {
     localStorage.setItem('recentCity', lastCitySearched);
 
 });
-
-// WHEN I click on a city in the search history
-// THEN I am again presented with current and future conditions for that city
 
 // User search history function
 var searchHistoryButtons = function() {
