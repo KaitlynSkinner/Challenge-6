@@ -70,27 +70,34 @@ $(searchButtonEl).on("click", function(e) {
 var searchHistoryButtons = function(data) {
     //console.log(searchedCities);
     //console.log(cityName);
-
+    $("#search-history").html("");
     // For loop for creating buttons and appending to the page under search area)
-    for (var i = 0; i < cityName.length; i++) {
+    for (var i = 0; i < searchedCities.length; i++) {
         var weatherSearch = $("<button>")
             .addClass("col btn btn-info btn-light btn-option")
-            .text(cityName);
+            .text(searchedCities[i]);
         $("#search-history").append(weatherSearch);
-        break;
     }
 
     $(searchHistoryEl).on("click", function(e) {
         e.preventDefault();
 
-        localStorage.getItem(searchedCities);
+        cityName = e.target.innerText;
+        fetchWeatherInfo();
+        localStorage.setItem('recentCity', cityName);
     })
 
 };
+searchHistoryButtons();
 
 // Write a function to present the current dates data
 var currentForecast = function(data){
     console.log(data);
+    $("#current-date").html("");
+    $("#current-icon").html("");
+    $("#current-temp").html("");
+    $("#current-wind").html("");
+    $("#uv-index").html("");
 
     // Variables for Weather in Current Day Forecast
     // Append date, icon, temperature, wind, and uv index to current forecast
@@ -111,11 +118,13 @@ var currentForecast = function(data){
     var uvIndex = data.current.uvi;
         $("#uv-index").append(uvIndex);
                     
-            if (uvIndex > 0) {
+            if (uvIndex < 3) {
                 $("#uv-index").addClass("severe");
             } else if (uvIndex > 3) {
                 $("#uv-index").addClass("moderate");
-            } else {
+            } 
+            
+            if (uvIndex > 5 ) {
                 $("#uv-index").addClass("favourable")
             }
             //console.log("#current-date");
@@ -123,15 +132,16 @@ var currentForecast = function(data){
 
 //5 Day Forecast function, using data from API as a parameter
 var fiveDayForecast = function (data){
-    
+            var weatherContainer = $("#container");
+            weatherContainer.html("");
+
             // For loop to loop through multiple cities data
             for (var i = 1; i < 6; i++) {
                 console.log(data[i]);
 
                 // Variable for 5 Day Forecast Cards, clearing content before appending
-                var weatherContainer = $("#container");
                 // Clearing Contents on screen
-                //weatherContainer.html("");
+
 
                 // Create a card, append to card, and append card to page
                 // Append to card dates, icons, temperatures, wind speeds, and humidity  
@@ -143,7 +153,7 @@ var fiveDayForecast = function (data){
                     .addClass("card-body");
                 weatherCard.append(cardBodyDiv);
 
-                var dates = "<p>" + moment().add(4, "days").format('M/D/YYYY') + "</p>";
+                var dates = "<p>" + moment().add(i, "days").format('M/D/YYYY') + "</p>";
                 cardBodyDiv.append(dates);
 
                 // Variable for icon, and url - append to img src, append img to card
